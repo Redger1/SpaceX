@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<title>Page Title</title>
+		
+		<link href="https://allfont.ru/allfont.css?fonts=sansation-light" rel="stylesheet" type="text/css" />
+
+		<script src="common.js"></script>
+
+		<!-- React JS -->
+		<script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    	<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+
+		<!-- Siema -->
+		<script src="https://cdn.jsdelivr.net/npm/siema@1.5.1/dist/siema.min.js" integrity="sha256-o/z6kPkEdOiAuBTgTdUaFN/F+srDaF3EbsJbkeAboXk=" crossorigin="anonymous"></script>
+
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="stilek.css">
+
+		
+</head>
+<body>
+	<div class="center">
+		<div class="slider" data-pos="0">
+			<header>
+				<div class="logo_top">
+					<a href="#">
+						<img class="size_logo" src="logo.png" alt="">
+					</a>
+				</div>
+				<nav class="site_nav">
+					<div class="logo_top">
+						<a href="#">
+							<img class="size_logo" src="img/logo.png" width="148" height="18" alt="">
+						</a>
+					</div>
+					<ul class="list">			
+						<a href="#"><li class="dragon">Dragon</li></a>
+						<a href="#"><li class="falcon">Falcon 9</li></a>
+						<a href="#"><li class="heavy">Falcon heavy</li></a>
+						<a href="#"><li class="updates">Updates</li></a>
+					</ul>
+					<div class="dropdown">
+						<div onclick="myFunction()" class="menu dropbtn">
+							<img class="menu_line1" src="line.png" width="22" height="1" alt="">
+							<img class="menu_line2" src="line.png" width="22" height="1" alt="">
+							<img class="menu_line3" src="line.png" width="22" height="1" alt="">
+						</div>
+  						<div id="myDropdown" class="dropdown-content">
+    						<a id="perv" href="#">Главная</a>
+    						<a id="dva" href="#">О нас</a>
+   							<a id="tri" href="#">Контакты</a>
+  						</div>
+					</div>
+				</nav>
+			<button type="button" class="knopka btn-light">Learn more</button>
+			</header>
+			<div class="slider__slides">
+				<div class="slider__slide">
+					<div class="logo">
+						<h1>Dividing the<br><span class="universe">universe</span></h1>
+						<img class="dividing" src="dividing.png" alt="">
+					</div>
+				</div>
+				<div class="slider__slide">
+					<div class="logo">
+						<h1>Creating the<br><span class="universe">future</span></h1>
+						<img class="dividing" src="dividing.png" alt="">
+					</div>
+				</div>
+				<div class="slider__slide">
+					<div class="logo">
+						<h1>Making life<br><span class="universe">multiplanetary</span></h1>
+						<img class="dividing" src="dividing.png" alt="">
+					</div>
+				</div>
+				<div class="slider__slide"></div>
+			</div>
+			<div class="slider__dots">
+				<a href="#" class="slider__indicator"></a>
+				<a href="#" class="slider__dot" data-pos="0"></a>
+				<a href="#" class="slider__dot" data-pos="1"></a>
+				<a href="#" class="slider__dot" data-pos="2"></a>
+				<a href="#" class="slider__dot" data-pos="3"></a>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		let dots = 4;
+		let sliderElem = document.querySelector('.slider');
+		let dotElems = sliderElem.querySelectorAll('.slider__dot');
+		let indicatorElem = sliderElem.querySelector('.slider__indicator');
+
+		Array.prototype.forEach.call(dotElems, dotElem => {
+  			dotElem.addEventListener('click', e => {
+				let currentPos = parseInt(sliderElem.getAttribute('data-pos'));
+    			let newPos = parseInt(dotElem.getAttribute('data-pos'));
+    			let newDirection = newPos > currentPos ? 'right' : 'left';
+    			let currentDirection = newPos < currentPos ? 'right' : 'left';
+				indicatorElem.classList.remove(`slider__indicator--${currentDirection}`);
+    			indicatorElem.classList.add(`slider__indicator--${newDirection}`);
+    			sliderElem.setAttribute('data-pos', newPos);
+  			});
+		});
+
+
+	function myFunction() {
+  		document.getElementById("myDropdown").classList.toggle("show");
+	}
+
+	window.onclick = function(event) {
+  		if (!event.target.matches('.dropbtn')) {
+    		var dropdowns = document.getElementsByClassName("dropdown-content");
+   			var i;
+    		for (i = 0; i < dropdowns.length; i++) {
+      			var openDropdown = dropdowns[i];
+      			if (openDropdown.classList.contains('show')) {
+        			openDropdown.classList.remove('show');
+      			}
+    		}
+  		}
+	}
+	</script>
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>
